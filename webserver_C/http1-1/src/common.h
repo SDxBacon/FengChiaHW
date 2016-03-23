@@ -50,11 +50,11 @@
 #endif
 
 #define SupportFileType	\
-{".html",".HTML",".htm",".HTM",".png",".PNG",".jpeg",".JPEG",".jpg",".JPG",".gif",".GIF"}
+{".html",".HTML",".htm",".HTM",".png",".PNG",".jpeg",".JPEG",".jpg",".JPG",".gif",".GIF",".ico"}
 
 #define SupportResponeMessage	\
 {"text/html","text/html","text/html","text/html","image/png","image/png","image/jpeg","image/jpeg"	\
-"image/jpeg","image/jpeg","image/gif","image/gif"}
+"image/jpeg","image/jpeg","image/gif","image/gif","text/html"}
 
 #define ARRAY_LEN(x) sizeof(x)/sizeof(x[0])
 

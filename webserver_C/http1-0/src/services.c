@@ -2,7 +2,6 @@
 
 static char *FileTypeList[] = SupportFileType;
 static char *ResponeMessageList[] = SupportResponeMessage;
-static char NowWorkingPath[BUFF_SIZE];
 
 /**
  * Get respone file type.
@@ -47,9 +46,10 @@ static void *client_services_inter(void *fd_in)
 			read_ret = read(client_fd, recvBuff , BUFF_SIZE);
 			if( read_ret > 0 )
 			{
-				char FileName[BUFF_SIZE] = {0};
-				char FileType[BUFF_SIZE] = {0};
-				char client_req[BUFF_SIZE] = {0};
+				char FileName[BUFF_SIZE] = {0},
+					 FileType[BUFF_SIZE] = {0},
+					 client_req[BUFF_SIZE] = {0},
+					 NowWorkingPath[BUFF_SIZE] = {0};
 				sscanf(recvBuff,"GET %s HTTP", client_req);
 				printf(KCYN_L"client: %d, client_req :%s"RESET"\n", client_fd, client_req);
 				/*Client GET root dir，return index.html*/
@@ -62,9 +62,10 @@ static void *client_services_inter(void *fd_in)
 				else
 					sscanf(client_req,"%[^.]%s",FileName,FileType);	//讀取到的檔名放到FileName，副檔名放到FileType
 
-				int reqFile_fd;
 				sprintf(NowWorkingPath,".%s", client_req); //NowWorkingPath
 				printf(KCYN_L"NowWorkingPath: %s"RESET"\n", NowWorkingPath);
+
+				int reqFile_fd;
 				reqFile_fd = open(NowWorkingPath, O_RDONLY);
 				if (  reqFile_fd != -1 ) 
 				{
