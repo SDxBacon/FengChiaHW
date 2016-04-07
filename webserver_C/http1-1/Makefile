@@ -2,7 +2,7 @@
 #
 # Define WorkingPath &  PORT_USE
 #
-custom_workingPath = \"./www\"
+custom_workingPath = \"../www\"
 custom_port_use = 8080
 custom_http_version = \"http/1.1\"
 
