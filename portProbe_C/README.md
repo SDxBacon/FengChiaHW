@@ -1,21 +1,21 @@
-Simple TCP port probe program
+#Simple TCP port probe program
 ------------------------------
 
 
-   Introduction    
+#Introduction    
 ------------------------------
 This is a small TCP port prob project of Network Technology course which is hosting by Prof. Chi-Shih Chao at Feng Chia University, Taiwan.
 
 
 
-    Requirement    
+#Requirement    
 ------------------------------
 1) libcprops. You can download it at http://cprops.sourceforge.net/
 2) this project is build on Ubuntu 15.04 (Linux kernel version 3.19) and does NOT support on windows.
 
 
 
-       Usage      
+#Usage      
 ------------------------------
 portProbe [-i <Target IP address>] [-p <target port number>]
 
