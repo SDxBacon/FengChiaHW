@@ -8,3 +8,6 @@ client_bomb: syn_bomb.o client_bomb.c
 
 syn_bomb.o: syn_bomb.c syn_bomb.h
 	$(CC) -c syn_bomb.c -o syn_bomb.o
+
+clean_obj:
+	-@rm *.o

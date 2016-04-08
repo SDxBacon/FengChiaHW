@@ -140,20 +140,25 @@ struct syn_bomb *libsynbomb_create(char *localIP, char *targetIP, int targetPort
  */
 void libsynbomb_clean(struct syn_bomb *this)
 {
+	pid_t pid;
 	char iptable_str[IPTABLES_STR_LEN]={0};
 	strcpy(iptable_str, "iptables -D OUTPUT -o eth0 -d ");
 	strcat(iptable_str, this->target_ip);
 	strcat(iptable_str, " -p tcp --tcp-flags SYN,ACK,FIN,RST RST -j DROP");
 
+	if ( this != NULL)
+		if (this->need_to_free == 1)
+			free(this);
 
-	/* Delay for 1ms. */
-	usleep(1000);
-
-	printf(KYEL_L"Removing iptables: %s"RESET"\n", iptable_str);
-	system(iptable_str);
-
-	if (this->need_to_free == 1)
-		free(this);
+	pid = fork();
+	if ( pid == 0){
+		sleep(60);
+		printf("\n"KYEL_L"Removing iptables: %s"RESET"\n", iptable_str);
+		system(iptable_str);
+		exit(0);
+	}
+	else
+		usleep(10);
 	return;
 }
 
