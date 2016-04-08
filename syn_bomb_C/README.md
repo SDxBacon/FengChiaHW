@@ -40,23 +40,24 @@ Changelog
 ---------
 
 #### 2016/04/08 (version 1.1) ####
-+  Progress:
-	1.  This version support input args. please use it as a commandline program.
-	2.  add iptable changes inside function _**libsynbomb_init**_ , _**libsynbomb_create**_ and _**libsynbomb\_clean**_ in order to drop the RST packet which kernel send it out automatically.  
+######  Progress:   
 
-+  knowing issue:
-	1. iptables will be changed by the program. if you shutdown program before the rule been deleted. you may need to  
+1.  This version support input args. please use it as a commandline program.
+2.  add iptable changes inside function _**libsynbomb_init**_ , _**libsynbomb_create**_ and _**libsynbomb\_clean**_ in order to drop the RST packet which kernel send it out automatically.  
+
+######  knowing issue:  
+1. iptables will be changed by the program. if you shutdown program before the rule been deleted. you may need to  
 	   delete the rule by yourself.
 
 
 #### 2016/04/07 (version 1.0) ####
-+  Progress:
-	1. version 1\.0 - done\.
-	2. This version doesn't support input args. so, please handle the target  
-	IP and port number inside the client_bomb.c  
-+  knowing issue:
-	1. can't work like a command line program.  
-	2. the bomb will have a 90 seconds delay before removing firewall rules.   
+######  Progress: 
+1. version 1\.0 - done\.
+2. This version doesn't support input args. so, please handle the target IP and port number inside the client_bomb.c  
+
+######  knowing issue:
+1. can't work like a command line program.  
+2. the bomb will have a 90 seconds delay before removing firewall rules.   
 	Hence, DO NOT use SIGINT or SIGTERM to kill the program. Please wait the
 	program finished by itself.  
 
